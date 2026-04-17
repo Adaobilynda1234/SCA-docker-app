@@ -260,3 +260,65 @@ This project demonstrates:
 * Deployment to Docker Hub
 
 ---
+
+# ⚠️ Issues Encountered & Solutions
+
+During the implementation of this project, I encountered a few issues while setting up the CI/CD pipeline and pushing the Docker image to Docker Hub.
+
+---
+
+## ❌ Issue 1: Docker Hub Authentication Failure
+
+### Error:
+
+```bash
+unauthorized: incorrect username or password
+```
+
+### Cause:
+
+* Initially used incorrect credentials for Docker Hub authentication
+* Used Docker password instead of an access token
+* Possible mismatch in Docker username
+
+---
+
+### ✅ Solution:
+
+1. Verified Docker Hub username by checking profile URL:
+
+   ```bash
+   https://hub.docker.com/u/lyndadev
+   ```
+
+2. Created a Docker Hub **Access Token** instead of using password:
+
+   * Navigated to Docker Hub → Account Settings → Security
+   * Generated a new access token with:
+
+     * Read
+     * Write
+     * Delete permissions
+
+3. Updated GitHub repository secrets:
+
+   ```bash
+   DOCKER_USERNAME = lyndadev
+   DOCKER_PASSWORD = <docker-access-token>
+   ```
+
+4. Re-ran the pipeline successfully
+
+---
+
+
+## ✅ Outcome
+
+After resolving the above issue:
+
+* CI/CD pipeline executed successfully
+* Docker image was built and pushed to Docker Hub
+* Application is now fully containerised and deployable
+
+---
+
