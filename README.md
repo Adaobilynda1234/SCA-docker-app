@@ -32,6 +32,57 @@ App will be available at http://localhost:3000
 
 Second endpoint will be available at http://localhost:3000/greet/{name}
 
+
+# 🐳 Dockerisation Process
+
+The application is containerised using a Dockerfile.
+
+## 🔧 Dockerfile Explanation
+
+```dockerfile
+FROM node:18-alpine
+```
+
+* Uses a lightweight Node.js image
+
+```dockerfile
+WORKDIR /app
+```
+
+* Sets working directory inside container
+
+```dockerfile
+COPY package*.json ./
+```
+
+* Copies dependency files first (improves caching)
+
+```dockerfile
+RUN npm install --production
+```
+
+* Installs only production dependencies
+
+```dockerfile
+COPY . .
+```
+
+* Copies the rest of the app files
+
+```dockerfile
+EXPOSE 3000
+```
+
+* Exposes the application port
+
+```dockerfile
+CMD ["node", "index.js"]
+```
+
+* Starts the application
+
+---
+
 ## 📁 Pipeline File Location
 
 ```
@@ -174,33 +225,7 @@ Value: your-docker-password-or-token
 
 ---
 
-## Pull and Run Image
 
-```bash
-docker pull lyndadev/docker-app:latest
-docker run -p 3000:3000 lyndadev/docker-app
-```
-
----
-
-# 🛠️ Running Locally
-
-```bash
-git clone https://github.com/Adaobilynda1234/SCA-docker-app.git
-cd docker-app
-
-docker build -t docker-app .
-docker run -p 3000:3000 docker-app
-```
-
----
-
-# 🌐 Application Endpoints
-
-* http://localhost:3000
-* http://localhost:3000/greet/Ada
-
----
 
 # 📁 Project Structure
 
@@ -241,13 +266,18 @@ docker-app/
 
 ### GitHub Actions Pipeline
 
-(Add screenshot of successful pipeline)
+![sucessful pipeline](./screenshots/successful-pipeline.png)
 
 ### Docker Hub Repository
 
-(Add screenshot of Docker Hub page)
+![docker-hub](./screenshots/docker-hub.png)
 
 ---
+
+
+🐳 Docker Hub Repository
+
+👉 https://hub.docker.com/r/lyndadev/docker-app
 
 # ✅ Summary
 
@@ -288,7 +318,7 @@ unauthorized: incorrect username or password
 1. Verified Docker Hub username by checking profile URL:
 
    ```bash
-   https://hub.docker.com/u/lyndadev
+   https://hub.docker.com/u/username
    ```
 
 2. Created a Docker Hub **Access Token** instead of using password:
