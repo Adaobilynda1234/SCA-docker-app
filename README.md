@@ -279,17 +279,7 @@ docker-app/
 
 👉 https://hub.docker.com/r/lyndadev/docker-app
 
-# ✅ Summary
 
-This project demonstrates:
-
-* Node.js application development
-* Docker containerisation
-* CI/CD pipeline automation using GitHub Actions
-* Secure credential management using GitHub Secrets
-* Deployment to Docker Hub
-
----
 
 # ⚠️ Issues Encountered & Solutions
 
@@ -349,6 +339,17 @@ After resolving the above issue:
 * CI/CD pipeline executed successfully
 * Docker image was built and pushed to Docker Hub
 * Application is now fully containerised and deployable
+
+---
+# ✅ Summary
+
+This project demonstrates:
+
+* Node.js application development
+* Docker containerisation
+* CI/CD pipeline automation using GitHub Actions
+* Secure credential management using GitHub Secrets
+* Deployment to Docker Hub
 
 ---
 
