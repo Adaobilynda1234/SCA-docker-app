@@ -1,4 +1,4 @@
-# Docker Take-Home Assignment
+# Description for the task and steps taken
 
 A simple Node.js/Express app with 2 REST endpoints, containerised with Docker.
 
@@ -162,7 +162,7 @@ jobs:
   with:
     context: .
     push: true
-    tags: lyndadev/docker-app:latest
+    tags: ${{ secrets.DOCKER_USERNAME }}/docker-app:latest
 ```
 
 * Builds Docker image from current directory
